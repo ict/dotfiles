@@ -1,0 +1,47 @@
+# Statusbar
+set -g status-bg black
+set -g status-fg white
+set -g status-justify centre
+set -g status-left-length 20
+set -g status-left '#[fg=green,bright] [#H:#S:#I]#[default]'
+set -g status-right '#[fg=yellow]%k:%M #[fg=blue,bright]%a,%d-%b#[default] '
+
+# Command bar
+set -g message-bg white
+
+# GUI-Selection
+setw -g mode-bg blue
+setw -g mode-fg yellow
+
+setw -g clock-mode-colour green
+setw -g clock-mode-style 24
+
+# Window Options
+set-window-option -g window-status-current-attr bright
+set-window-option -g window-status-current-fg red
+set-option -g mouse-select-pane on
+
+set -g visual-activity on
+
+# Old Screen Prefix-Key
+unbind C-b
+set -g prefix C-a
+bind a send-prefix
+bind C-a send-prefix
+
+bind -n "F7" previous-window
+bind -n "F8" next-window
+
+bind m setw monitor-activity
+
+# open a man page in new window
+bind / command-prompt "split-window 'exec man %%'"
+
+# more straightforward splitting keys
+unbind %
+bind | split-window -h
+bind h split-window -h
+unbind '"'
+bind - split-window -v
+bind v split-window -v
+
