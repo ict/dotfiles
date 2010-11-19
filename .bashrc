@@ -17,8 +17,6 @@ alias vncoff='vncserver -kill :1'
 alias mc='env LANG=en_US.utf8 mc'
 alias sshuni='ssh -Y sidekell@faui0sr0.informatik.uni-erlangen.de'
 alias sshome='ssh -p 1501 -Y -C -L 5901:localhost:5901 ict@ictbox.no-ip.org'
-alias vncon='vncserver -geometry 1024x768 -depth 16'
-alias vncoff='vncserver -kill :1'
 
 if [[ $- != *i* ]] ; then
 	# Non interactive shell
@@ -33,7 +31,7 @@ function x()
             *.tar.gz)   tar xzf "$1"      ;;
             *.tar.Z)    tar xzf "$1"      ;;
             *.bz2)      bunzip2 "$1"      ;;
-            *.rar)      unrar x "$1"        ;;
+            *.rar)      unrar x "$1"      ;;
             *.gz)       gunzip "$1"       ;;
             *.jar)      unzip "$1"        ;;
             *.tar)      tar xf "$1"       ;;
@@ -51,15 +49,11 @@ function x()
 
 #Prompt and Titlebar stuff
 PS1='[\u@\h $newPWD]\$ '
-#PS1="\[\033[1;33m\]\$(date +%H:%M)\[\033[0m\] [\u@\h \$newPWD]\[\033[1;33m\]>\[\033[0m\] "
-#PS1="[\u@\h \$newPWD]"'\[\033k\033\\\]\$ '
 OPENTITLEBAR="\033]0;"
 CLOSETITLEBAR="\007"
 
 #console window titlebar set - sieht man eh nicht im screen
 #trap 'printf "${OPENTITLEBAR} `history 1 | cut -b8-` - `pwd` ${CLOSETITLEBAR}"' DEBUG
-
-export REGISTRY=$HOME/.mplayer/registry32
 
 # Completion stuff
 complete -cf sudo
@@ -69,8 +63,8 @@ shopt -s histappend
 # No empty completion
 shopt -s no_empty_cmd_completion
 # Write History on Prompt-Display
-source /etc/bash_completion
 PROMPT_COMMAND='smartprompt; history -a'
+source /etc/bash_completion
 
 function smartprompt
 {
