@@ -18,7 +18,7 @@ set smartcase
 set title
 set hidden
 
-set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 set visualbell t_vb=
 
