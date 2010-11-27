@@ -23,6 +23,17 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
+if [[ "${COLORTERM}" == "gnome-terminal" && "${TERM}" == "xterm"  ]]; then
+    export TERM="gnome-256color"
+fi
+
+
+function mkcd()
+{
+    mkdir "$1" && cd "$1"
+}
+
+
 function x()
 { 
     if [ -f "$1" ] ; then
@@ -84,5 +95,5 @@ fi
 
 function s() 
 { 
-    tmux attach -t work || tmux new -s work 
+    tmux attach -t work || tmux -2 new -s work 
 }
