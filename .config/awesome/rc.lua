@@ -14,7 +14,7 @@ beautiful.init("/home/ict/.config/awesome/theme.lua")
 -- This is used later as the default terminal and editor to run.
 terminal = "gnome-terminal"
 editor = os.getenv("EDITOR") or "vim"
-editor_cmd = terminal .. " -e " .. editor
+editor_cmd = terminal .. " -x " .. editor
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -335,7 +335,7 @@ awful.rules.rules = {
       properties = { tag = tags[1][1] },
       callback = awful.client.setslave },
     { rule = { class = "Nautilus" },
-      properties = { tag = tags[1][4] } },
+      properties = { floating = true } },
     -- Set Firefox to always map on tags number 2 of screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { tag = tags[1][2] } },
