@@ -24,7 +24,7 @@ if [[ $- != *i* ]] ; then
 fi
 
 if [[ "${COLORTERM}" == "gnome-terminal" && "${TERM}" == "xterm"  ]]; then
-    export TERM="gnome-256color"
+    export TERM="xterm-256color"
 fi
 
 

@@ -14,6 +14,7 @@ set mouse=a
 
 set smartindent
 set nocopyindent
+set linebreak
 set smartcase
 set title
 set hidden
@@ -31,7 +32,7 @@ set nocompatible
 cab W w | cab Q q | cab Wq wq | cab wQ wq | cab WQ wq
 
 " Auto close braces
-imap { {<CR>}<Esc>O
+imap { {}<left>
 imap ( ()<left>
 imap [ []<left>
 
