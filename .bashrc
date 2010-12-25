@@ -95,5 +95,5 @@ fi
 
 function s() 
 { 
-    tmux attach -t work || tmux -2 new -s work 
+    tmux attach -2 -t work || tmux -2 new -s work 
 }
