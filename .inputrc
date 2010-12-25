@@ -5,3 +5,24 @@ set bell-style none
 
 "\e[5~":    history-search-backward
 "\e[6~":    history-search-forward
+
+set enable-meta-key on
+
+$if Bash
+
+    Space: magic-space
+
+    #Meta-O to reload last command and position cursor for a parameter
+    #???: "\C-p\C-a\M-f "
+
+    #Completion stuff, not sure if want yet
+    set match-hidden-files off
+    set completion-ignore-case on
+
+    set show-all-if-ambiguous on
+    "\C-o": menu-complete
+
+
+$endif
+
+
