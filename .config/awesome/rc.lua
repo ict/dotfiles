@@ -81,7 +81,7 @@ mynetmenu = {
 mymainmenu = awful.menu({ items = {  { "net", mynetmenu },
                                      { "awesome", myawesomemenu, beautiful.awesome_icon },
                                      { "terminal", terminal },
-                                     { "nautilus", "nautilus /home/ict/" }
+                                     { "nautilus", "nautilus --no-desktop /home/ict/" }
                                   }
                         })
 
