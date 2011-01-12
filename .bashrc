@@ -30,7 +30,7 @@ fi
 
 function mkcd()
 {
-    mkdir "$1" && cd "$1"
+    mkdir -p "$1" && cd "$1"
 }
 
 
@@ -95,5 +95,5 @@ fi
 
 function s() 
 { 
-    tmux attach -2 -t work || tmux -2 new -s work 
+    tmux -2 attach -t work || tmux -2 new -s work 
 }
