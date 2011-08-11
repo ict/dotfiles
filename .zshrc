@@ -111,7 +111,7 @@ function s()
 
 # The following lines were added by compinstall
 
-zstyle ':completion:*' completer _expand _complete _ignored _ approximate
+zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle ':completion:*' completions 1
 zstyle ':completion:*' expand prefix suffix
 zstyle ':completion:*' glob 1
