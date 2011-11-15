@@ -2,6 +2,7 @@
 
 
 autoload -Uz compinit promptinit
+autoload -U colors && colors
 compinit
 
 export DIRSTACKSIZE=8
@@ -9,12 +10,13 @@ export HISTFILE=~/.zsh_history
 export HISTSIZE=50000
 export SAVEHIST=50000
 export EDITOR="vim"
+export TERM="gnome"
 eval `dircolors -b`
 
 setopt autopushd pushdminus pushdsilent pushdtohome
 alias dh='dirs -v'
 setopt interactivecomments
-setopt autocd
+#setopt autocd
 setopt cdablevars
 setopt interactivecomments
 setopt noclobber
@@ -51,7 +53,9 @@ alias sshuni='ssh -Y sidekell@faui0sr0.informatik.uni-erlangen.de'
 alias sshome='ssh -p 1501 -Y -C -L 5901:localhost:5901 ict@ictbox.no-ip.org'
 alias man='LC_ALL=C LANG=C man'
 
-promptinit && prompt walters
+#promptinit && prompt walters
+PROMPT="[%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%1~ %{$reset_color%}]$ "
+#RPROMPT="[%{$fg[yellow]%}%?%{$reset_color%}]"
 
 bindkey "\e[1~" beginning-of-line # Home
 bindkey "\e[4~" end-of-line # End
