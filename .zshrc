@@ -111,7 +111,7 @@ function s()
 
 # The following lines were added by compinstall
 
-zstyle ':completion:*' completer _expand _complete _ignored _ approximate
+zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle ':completion:*' completions 1
 zstyle ':completion:*' expand prefix suffix
 zstyle ':completion:*' glob 1
@@ -127,11 +127,13 @@ zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*' substitute 0
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' insert-unambiguous true
-zstyle ':completion:*' menu select=1 _complete _ignored _approximate
+zstyle ':completion:*' menu select=1 
 zstyle :compinstall filename '/home/ict/.zshrc'
 
-zstyle ':completion:*:*:kill:*:processes' command 'ps --forest -A -o pid,user,cmd'
+zstyle ':completion:*:*:kill:*:processes' command 'ps --forest -u${USER} -o pid,user,cmd'
 zstyle ':completion:*:processes-names' command 'ps axho command' 
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*' force-list always
 
 autoload -Uz compinit
 compinit
