@@ -54,7 +54,7 @@ alias sshome='ssh -p 1501 -Y -C -L 5901:localhost:5901 ict@ictbox.no-ip.org'
 alias man='LC_ALL=C LANG=C man'
 
 #promptinit && prompt walters
-PROMPT="[%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%1~ %{$reset_color%}]$ "
+PROMPT="[%{$fg_bold[red]%}%n%{$reset_color%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$reset_color%}]$ "
 #RPROMPT="[%{$fg[yellow]%}%?%{$reset_color%}]"
 
 bindkey "\e[1~" beginning-of-line # Home
@@ -111,6 +111,13 @@ function x()
 function s() 
 { 
     tmux -2 attach -t work || tmux -2 new -s work 
+}
+
+function makepdf()
+{
+	a2ps "$1" -o "$1.ps" -M A4dj -T 4 --columns=1 --margin=5 -r -l 150
+	ps2pdf -sPAPERSIZE=a4 "$1.ps" "$1.pdf"
+    rm -f "$1.ps"
 }
 
 # The following lines were added by compinstall

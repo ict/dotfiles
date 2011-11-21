@@ -30,7 +30,8 @@ let colors_name="lucius"
 " Base color
 " ----------
 hi Normal           guifg=#e0e0e0           guibg=#202020
-hi Normal           ctermfg=253             ctermbg=16
+"hi Normal           ctermfg=253             ctermbg=16
+hi Normal           ctermfg=253            
 " ctermbg=235
 
 
@@ -205,10 +206,10 @@ hi SpellLocal                               ctermbg=14              cterm=underc
 " ------
 " character under the cursor
 hi Cursor           guifg=bg                guibg=#a3e3ed
-hi Cursor           ctermfg=bg              ctermbg=153
+hi Cursor           ctermfg=16
 " like cursor, but used when in IME mode
 hi CursorIM         guifg=bg                guibg=#96cdcd
-hi CursorIM         ctermfg=bg              ctermbg=116
+hi CursorIM         ctermfg=16              ctermbg=116
 " cursor column
 hi CursorColumn     guifg=NONE              guibg=#202438           gui=none
 hi CursorColumn     ctermfg=NONE            ctermbg=236             cterm=none
