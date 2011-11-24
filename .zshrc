@@ -10,7 +10,7 @@ export HISTFILE=~/.zsh_history
 export HISTSIZE=50000
 export SAVEHIST=50000
 export EDITOR="vim"
-export TERM="gnome"
+#export TERM="gnome"
 eval `dircolors -b`
 
 setopt autopushd pushdminus pushdsilent pushdtohome
