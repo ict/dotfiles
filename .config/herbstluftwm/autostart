@@ -6,15 +6,12 @@ function hc() {
     herbstclient "$@"
 }
 
-#xsetroot -solid '#5A8E3A'
-feh --bg-fill Wallpaper/wallpaper-1095561.jpg
-
-trayer --SetDockType true --widthtype pixel --width 300 --edge top --align right --heighttype pixel --height 18 --transparent true --tint 0x000000 --alpha 0 &
-
-$XDG_CONFIG_HOME/herbstluftwm/panel.sh &
+hc emit_hook reload
 
 # keybindings
 Mod=Mod4
+
+hc keyunbind --all
 
 hc keybind $Mod-q quit
 hc keybind $Mod-Shift-r reload
@@ -24,6 +21,20 @@ hc keybind $Mod-Control-Return spawn dmenu_run
 hc keybind $Mod-f spawn firefox
 hc keybind $Mod-e spawn nautilus
 #hc keybind $Mod-Control-Return spawn gmrun
+
+# colors and settings
+hc set frame_border_active_color '#0371AA'
+hc set frame_border_normal_color '#00324C'
+hc set frame_bg_transparent '1'
+#hc set frame_bg_normal_color '#BD9768'
+#hc set frame_bg_active_color '#BD8541'
+hc set frame_border_width 2
+hc set window_border_width 2
+hc set window_border_normal_color '#7B9B77'
+hc set window_border_active_color '#51DC43'
+
+hc set default_frame_layout 2
+
 
 # tags
 TAG_NAMES=( {1..9} )
@@ -66,7 +77,7 @@ hc mousebind $Mod-Button2 resize
 hc mousebind $Mod-Button3 zoom
 
 # focus
-hc set focus_follows_mouse 0
+hc set focus_follows_mouse 1
 
 #hc keybind $Mod-BackSpace   cycle_monitor
 hc keybind $Mod-Tab         cycle_all +1
@@ -81,17 +92,6 @@ hc keybind $Mod-Shift-j shift down
 hc keybind $Mod-Shift-k shift up
 hc keybind $Mod-Shift-l shift right
 
-# colors
-hc set frame_border_active_color '#0371AA'
-hc set frame_border_normal_color '#00324C'
-hc set frame_bg_transparent '1'
-#hc set frame_bg_normal_color '#BD9768'
-#hc set frame_bg_active_color '#BD8541'
-hc set frame_border_width 2
-hc set window_border_width 2
-hc set window_border_normal_color '#7B9B77'
-hc set window_border_active_color '#51DC43'
-
 # rules
 hc unrule -F
 #hc rule class=XTerm tag=3 # move all xterms to tag 3
@@ -104,4 +104,9 @@ hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK)' manage=off
 
 
+feh --bg-fill Wallpaper/wallpaper-1095561.jpg
+
+trayer --SetDockType true --widthtype pixel --width 300 --edge top --align right --heighttype pixel --height 18 --transparent true --tint 0x000000 --alpha 0 &
+
+$XDG_CONFIG_HOME/herbstluftwm/panel.sh &
 
