@@ -11,6 +11,7 @@ hc emit_hook reload
 # keybindings
 Mod=Mod4
 
+# remove all existing keybindings
 hc keyunbind --all
 
 hc keybind $Mod-q quit
@@ -45,12 +46,16 @@ for i in ${!TAG_NAMES[@]} ; do
     hc add "${TAG_NAMES[$i]}"
     key="${TAG_KEYS[$i]}"
     if ! [ -z "$key" ] ; then
-        hc keybind "$Mod-$key" use "${TAG_NAMES[$i]}"
-        hc keybind "$Mod-Shift-$key" move "${TAG_NAMES[$i]}"
+        hc keybind "$Mod-$key" use_index "$i"
+        hc keybind "$Mod-Shift-$key" move_index "$i"
     fi
 done
-hc keybind $Mod-Left spawn $XDG_CONFIG_HOME/herbstluftwm/prevTag.sh
-hc keybind $Mod-Right spawn $XDG_CONFIG_HOME/herbstluftwm/nextTag.sh
+
+# cycle through tags
+hc keybind $Mod-period use_index +1
+hc keybind $Mod-comma  use_index -1
+hc keybind $Mod-Right use_index +1
+hc keybind $Mod-Left  use_index -1
 
 # layouting
 hc keybind $Mod-r remove
