@@ -49,6 +49,9 @@ for i in ${!TAG_NAMES[@]} ; do
         hc keybind "$Mod-Shift-$key" move "${TAG_NAMES[$i]}"
     fi
 done
+
+hc load 1 '(split horizontal:0.800000:0 (clients max:0) (clients vertical:0)))))'
+
 hc keybind $Mod-Left spawn $XDG_CONFIG_HOME/herbstluftwm/prevTag.sh
 hc keybind $Mod-Right spawn $XDG_CONFIG_HOME/herbstluftwm/nextTag.sh
 
@@ -98,6 +101,8 @@ hc unrule -F
 hc rule focus=on # normally do focus new clients
 # give focus to most common terminals
 hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
+hc rule class='file_progress' pseudotile=on
+hc rule class='Plugin-container' fullscreen=on
 hc rule class='Gmrun' pseudotile=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
