@@ -59,8 +59,8 @@ PROMPT="[%{$fg_bold[red]%}%n%{$reset_color%}@%{$fg_bold[blue]%}%m %{$fg_bold[yel
 
 bindkey "\e[1~" beginning-of-line # Home
 bindkey "\e[4~" end-of-line # End
-bindkey "\e[5~" history-search-backward # PageUp
-bindkey "\e[6~" history-search-forward # PageDown
+bindkey "\e[5~" history-beginning-search-backward # PageUp
+bindkey "\e[6~" history-beginning-search-forward # PageDown
 bindkey "\e[2~" quoted-insert # Ins
 bindkey "\e[3~" delete-char # Del
 bindkey "\e[5C" forward-word
