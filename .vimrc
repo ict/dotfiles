@@ -6,6 +6,9 @@ colorscheme lucius
 
 let mapleader = "\\"
 
+" I hate code folds
+se nofoldenable
+
 " forgot sudo?
 cmap w!! w !sudo tee >/dev/null %
 
@@ -21,7 +24,7 @@ set smartcase
 set title
 set hidden
 
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 
 set visualbell t_vb=
 
@@ -76,3 +79,16 @@ if has("autocmd")
  
 endif " has("autocmd")
 
+setlocal spell spelllang=de_20
+se nospell
+
+" For latexsuite
+filetype plugin indent on
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor = "latex"
+
+" Easier tabbing
+noremap <F9> :set list!<CR>
+set listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<,nbsp:_
+"Highlight special characters in yellow:
+highlight SpecialKey term=standout ctermbg=yellow guibg=yellow

@@ -52,6 +52,7 @@ alias mc='env LANG=en_US.utf8 mc'
 alias sshuni='ssh -Y sidekell@faui0sr0.informatik.uni-erlangen.de'
 alias sshome='ssh -p 1501 -Y -C -L 5901:localhost:5901 ict@ictbox.no-ip.org'
 alias man='LC_ALL=C LANG=C man'
+alias st='env LD_LIBRARY_PATH="/usr/lib" "/opt/sublime_text/sublime_text"'
 
 #promptinit && prompt walters
 PROMPT="[%{$fg_bold[red]%}%n%{$reset_color%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$reset_color%}]$ "
