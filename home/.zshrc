@@ -16,19 +16,18 @@ eval `dircolors -b`
 setopt autopushd pushdminus pushdsilent pushdtohome
 alias dh='dirs -v'
 setopt interactivecomments
-#setopt autocd
 setopt cdablevars
 setopt interactivecomments
 setopt noclobber
 setopt HIST_REDUCE_BLANKS
 setopt HIST_IGNORE_SPACE
+setopt HIST_ALLOW_CLOBBER
 setopt SH_WORD_SPLIT
 setopt nohup
 setopt INC_APPEND_HISTORY SHARE_HISTORY
 setopt correct correctall
 unsetopt menucomplete
 setopt longlistjobs
-setopt appendhistory autocd nomatch
 unsetopt beep extendedglob
 unsetopt bgnice
 bindkey -e
@@ -118,7 +117,7 @@ function makepdf()
 {
 	a2ps "$1" -o "$1.ps" -M A4dj -T 4 --columns=1 --margin=5 -r -l 150
 	ps2pdf -sPAPERSIZE=a4 "$1.ps" "$1.pdf"
-    rm -f "$1.ps"
+	rm -f "$1.ps"
 }
 
 # The following lines were added by compinstall
@@ -142,9 +141,11 @@ zstyle ':completion:*' insert-unambiguous true
 zstyle ':completion:*' menu select=1 
 zstyle :compinstall filename '/home/ict/.zshrc'
 
-zstyle ':completion:*:*:kill:*:processes' command 'ps --forest -u${USER} -o pid,user,cmd'
-zstyle ':completion:*:processes-names' command 'ps axho command' 
-zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:rm:*' ignore-line yes
+zstyle ':completion:*:processes-names' command 'ps c -e -o comm='
+zstyle ':completion:*:processes' command 'ps -au$USER'
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
+zstyle ':completion:*:*:kill*:*' menu yes select
 zstyle ':completion:*:kill:*' force-list always
 
 autoload -Uz compinit
