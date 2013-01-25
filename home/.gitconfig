@@ -1,0 +1,10 @@
+[user]
+	email = ict1986@gmail.com
+
+[diff]
+    external = /home/ict/scripts/git_diff_wrap.sh
+
+[pager]
+    diff =
+[push]
+    default = simple
