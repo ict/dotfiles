@@ -44,6 +44,14 @@ imap [ []<left>
 " select case-insenitiv search (not default)
 set ignorecase
 
+" highlight results
+set hlsearch
+"but switch off highlighting with _
+nnoremap <silent> _ :nohl<CR>
+
+"set incremental search
+set incsearch
+
 " show cursor line and column in the status line
 set ruler
 
