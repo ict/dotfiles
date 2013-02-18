@@ -1,3 +1,20 @@
+" clear all
+autocmd!
+
+" set up vundle
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+" My Bundles here
+
+
+filetype plugin indent on
+
+" appearance
 set nu
 se bg=dark
 syntax on
@@ -24,25 +41,16 @@ set smartcase
 set title
 set hidden
 
-set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 
+" don't beep, dont blink
 set visualbell t_vb=
-
-map <F5> :w <Enter> :make <Enter>
-map! <F5>  <ESC> :w <Enter> :make <Enter>
 
 set nocompatible
 
-" some useful abbreviations to common mistyped commands
-cab W w | cab Q q | cab Wq wq | cab wQ wq | cab WQ wq
-
-" Auto close braces
-imap { {}<left>
-imap ( ()<left>
-imap [ []<left>
-
-" select case-insenitiv search (not default)
-set ignorecase
+" select case-insensitive search (but be sensitive when there are uppercase
+" words
+set smartcase
 
 " highlight results
 set hlsearch
@@ -67,36 +75,51 @@ set showmode
 " Required to be able to use keypad keys and map missed escape sequences
 set esckeys
 
-" allow backspacing over everything in insert mode 
+" allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
 " Complete longest common string, then each full match
 " enable this for bash compatible behaviour
 set wildmode=longest,full
 
-
-" Only do this part when compiled with support for autocommands. 
-if has("autocmd") 
-  " When editing a file, always jump to the last known cursor position. 
-  " Don't do it when the position is invalid or when inside an event handler 
-  " (happens when dropping a file on gvim). 
-  autocmd BufReadPost * 
-    \ if line("'\"") > 0 && line("'\"") <= line("$") | 
-    \   exe "normal g`\"" | 
-    \ endif 
- 
-endif " has("autocmd")
-
+" setup spelling but dont use it normally
 setlocal spell spelllang=de_20
 se nospell
 
-" For latexsuite
-filetype plugin indent on
-set grepprg=grep\ -nH\ $*
-let g:tex_flavor = "latex"
-
-" Easier tabbing
-noremap <F9> :set list!<CR>
+" What characters are displayed (with <Leader>-w)
 set listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<,nbsp:_
 "Highlight special characters in yellow:
 highlight SpecialKey term=standout ctermbg=yellow guibg=yellow
+
+set switchbuf=usetab,newtab
+
+
+" ==== MAPPINGS ====
+
+" Auto close braces
+imap { {}<left>
+imap ( ()<left>
+imap [ []<left>
+
+" Make whitespace visible
+noremap <leader>w :set list!<CR>
+
+" Make all Buffers into Tabs
+noremap <leader>T :tab sball<CR>
+
+
+" Hotkey for NERDTree
+" nnoremap <C-n> :NERDTreeToggle<CR>
+
+" ==== AUTOCMDS ====
+
+" Open NERDTree when launched without Arguments
+"autocmd vimenter * if !argc() | NERDTree | endif
+
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+autocmd BufReadPost *
+\ if line("'\"") > 0 && line("'\"") <= line("$") | 
+\   exe "normal g`\"" | 
+\ endif 
