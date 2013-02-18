@@ -24,7 +24,7 @@ se bg=dark
 syntax on
 set t_Co=256
 colorscheme jellybeans
-set colorcolumn
+set cursorline
 
 let mapleader = "\\"
 
