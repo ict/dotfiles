@@ -10,6 +10,10 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " My Bundles here
+Bundle 'honza/snipmate-snippets'
+Bundle 'SirVer/ultisnips'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Raimondi/delimitMate'
 
 
 filetype plugin indent on
@@ -19,7 +23,8 @@ set nu
 se bg=dark
 syntax on
 set t_Co=256
-colorscheme lucius
+colorscheme jellybeans
+set colorcolumn
 
 let mapleader = "\\"
 
@@ -94,12 +99,22 @@ highlight SpecialKey term=standout ctermbg=yellow guibg=yellow
 set switchbuf=usetab,newtab
 
 
+" Configure Ultisnips
+let g:UltiSnipsUsePythonVersion = 2
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" TODO! Doesnt work
+let g:UltiSnipsListSnippets="<c-tab>"
+
+set rtp+=~/.vim/bundle/ultisnips/
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+
 " ==== MAPPINGS ====
 
-" Auto close braces
-imap { {}<left>
-imap ( ()<left>
-imap [ []<left>
+" Make Y behave like C and D
+nnoremap Y y$
 
 " Make whitespace visible
 noremap <leader>w :set list!<CR>
@@ -109,12 +124,12 @@ noremap <leader>T :tab sball<CR>
 
 
 " Hotkey for NERDTree
-" nnoremap <C-n> :NERDTreeToggle<CR>
+ nnoremap <leader>n :NERDTreeToggle<CR>
 
 " ==== AUTOCMDS ====
 
 " Open NERDTree when launched without Arguments
-"autocmd vimenter * if !argc() | NERDTree | endif
+autocmd vimenter * if !argc() | NERDTree | endif
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
