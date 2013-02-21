@@ -1,6 +1,10 @@
 " clear all
 autocmd!
 
+if has("win32")
+	set rtp^=~/.vim
+endif
+
 " set up vundle
 set nocompatible
 filetype off
@@ -23,7 +27,7 @@ set nu
 se bg=dark
 syntax on
 set t_Co=256
-colorscheme jellybeans
+colorscheme wombat256
 set cursorline
 
 let mapleader = "\\"
@@ -46,7 +50,9 @@ set smartcase
 set title
 set hidden
 
+" format options
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+set fileformats=unix,dos
 
 " don't beep, dont blink
 set visualbell t_vb=
@@ -87,9 +93,11 @@ set backspace=indent,eol,start
 " enable this for bash compatible behaviour
 set wildmode=longest,full
 
-" setup spelling but dont use it normally
-setlocal spell spelllang=de_20
-se nospell
+if has("unix")
+	" setup spelling but dont use it normally
+	setlocal spell spelllang=de_20
+	se nospell
+endif
 
 " What characters are displayed (with <Leader>-w)
 set listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<,nbsp:_
@@ -105,10 +113,9 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-" TODO! Doesnt work
+" TODO! Doesnt work in console
 let g:UltiSnipsListSnippets="<c-tab>"
 
-set rtp+=~/.vim/bundle/ultisnips/
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
 " ==== MAPPINGS ====
@@ -120,7 +127,7 @@ nnoremap Y y$
 noremap <leader>w :set list!<CR>
 
 " Make all Buffers into Tabs
-noremap <leader>T :tab sball<CR>
+noremap <leader>t :tab sball<CR>
 
 
 " Hotkey for NERDTree
@@ -138,3 +145,29 @@ autocmd BufReadPost *
 \ if line("'\"") > 0 && line("'\"") <= line("$") | 
 \   exe "normal g`\"" | 
 \ endif 
+
+
+
+" GVIM-stuff
+
+if has("gui_running")
+
+	" no blinking cursor
+	se guicursor+=a:blinkon0
+
+	" no flash and beep
+	se vb t_vb=
+
+	" no menubar, no toolbar, no scollbars, just a tabbar if neccessary
+	se guioptions=e
+
+	if has("win32")
+		set guifont=Ubuntu_Mono:h12:cANSI
+	else
+		set guifont=Ubuntu\ Mono\ 11
+	endif
+
+	" initial window size
+	set lines=60 columns=200
+
+endif
