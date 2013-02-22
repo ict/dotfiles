@@ -53,6 +53,7 @@ set hidden
 " format options
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 set fileformats=unix,dos
+set encoding=utf8
 
 " don't beep, dont blink
 set visualbell t_vb=
