@@ -92,6 +92,7 @@ set backspace=indent,eol,start
 
 " Complete longest common string, then each full match
 " enable this for bash compatible behaviour
+set wildmenu
 set wildmode=longest,full
 
 if has("unix")
