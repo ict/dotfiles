@@ -18,37 +18,52 @@ Bundle 'honza/snipmate-snippets'
 Bundle 'SirVer/ultisnips'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Raimondi/delimitMate'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'Lokaltog/vim-easymotion'
 
 
 filetype plugin indent on
 
+let mapleader = "\\"
+
 " appearance
 set nu
-se bg=dark
+set bg=dark
 syntax on
 set t_Co=256
 colorscheme wombat256
 set cursorline
+set matchtime=1 "show matching brackets for .1 seconds
+set scrolloff=5"
+set laststatus=2 "always show statusline"
 
-let mapleader = "\\"
+" Statusline
+set statusline=%F " Filename and path
+set statusline+=\ [%{strlen(&fenc)?&fenc:'none'}, " File encoding
+set statusline+=%{&ff}] " File format
+set statusline+=\ %y " Filetype
+set statusline+=\ %m " Modified flag
+set statusline+=\ %r " Read only flag
+set statusline+=%= " Left/right separator
+set statusline+=\ %c, " Cursor column
+set statusline+=\ %l/%L " Cursor line/total lines
+set statusline+=\ %P " Percent through file
 
 " I hate code folds
 se nofoldenable
 
-" forgot sudo?
-cmap w!! w !sudo tee >/dev/null %
-
-" Variable Completion a la Eclipse
-imap <Nul> <C-n>
 " Mouse Support
 set mouse=a
 
+set autoindent
 set smartindent
 set nocopyindent
-set linebreak
+
+set ignorecase
 set smartcase
+
 set title
-set hidden
+set nohidden " close buffers when window/tab closes"
 
 " format options
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
@@ -57,8 +72,6 @@ set encoding=utf8
 
 " don't beep, dont blink
 set visualbell t_vb=
-
-set nocompatible
 
 " select case-insensitive search (but be sensitive when there are uppercase
 " words
@@ -94,6 +107,7 @@ set backspace=indent,eol,start
 " enable this for bash compatible behaviour
 set wildmenu
 set wildmode=longest,full
+set wildignore=.svn,.git
 
 if has("unix")
 	" setup spelling but dont use it normally
@@ -102,11 +116,13 @@ if has("unix")
 endif
 
 " What characters are displayed (with <Leader>-w)
-set listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<,nbsp:_
+"set listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<,nbsp:_
+set listchars=eol:¬,tab:•·,trail:·
 "Highlight special characters in yellow:
 highlight SpecialKey term=standout ctermbg=yellow guibg=yellow
 
 set switchbuf=usetab,newtab
+
 
 
 " Configure Ultisnips
@@ -131,9 +147,37 @@ noremap <leader>w :set list!<CR>
 " Make all Buffers into Tabs
 noremap <leader>t :tab sball<CR>
 
-
 " Hotkey for NERDTree
- nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
+
+" forgot sudo?
+nnoremap <leader>W :w !sudo tee >/dev/null %<CR>
+
+" Variable Completion a la Eclipse
+imap <Nul> <C-n>
+
+" Toggle Paste
+noremap <leader>p :set paste! paste?<CR>
+
+" Tab mappings
+nnoremap <C-T> :tabnew<CR>
+nnoremap <C-W> :tabclose<CR>
+
+" Window Mappings
+nnoremap <C-H> <C-W>h
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+nnoremap <C-=> <C-W>=
+
+" Use normal-mode arrow-keys for change- and jumplist
+nnoremap <UP> <C-O>
+nnoremap <DOWN> <C-I>
+nnoremap <LEFT> g;
+nnoremap <RIGHT> g,
+
+" Quicker ESC
+inoremap jj <ESC>
 
 " ==== AUTOCMDS ====
 
@@ -148,7 +192,10 @@ autocmd BufReadPost *
 \   exe "normal g`\"" | 
 \ endif 
 
-
+" For vimdiff
+if &diff
+	nnoremap <SPACE><SPACE> :qa<CR>
+endif
 
 " GVIM-stuff
 
