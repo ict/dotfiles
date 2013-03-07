@@ -17,10 +17,10 @@ Bundle 'gmarik/vundle'
 Bundle 'honza/snipmate-snippets'
 Bundle 'SirVer/ultisnips'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'Lokaltog/vim-easymotion'
-
 
 filetype plugin indent on
 
@@ -28,6 +28,7 @@ let mapleader = "\\"
 
 " appearance
 set nu
+set relativenumber
 set bg=dark
 syntax on
 set t_Co=256
@@ -71,11 +72,10 @@ set fileformats=unix,dos
 set encoding=utf8
 
 " don't beep, dont blink
-set visualbell t_vb=
+set novisualbell
 
-" select case-insensitive search (but be sensitive when there are uppercase
-" words
-set smartcase
+" always substitute all matches
+set gdefault
 
 " highlight results
 set hlsearch
@@ -99,6 +99,8 @@ set showmode
 
 " Required to be able to use keypad keys and map missed escape sequences
 set esckeys
+" Time out faster for keycodes, so ESC works quicker
+set ttimeout ttimeoutlen=50
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -138,20 +140,31 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
 " ==== MAPPINGS ====
 
+" Use Tab to jump to matching brackets
+nnoremap <TAB> %
+vnoremap <TAB> %
+
+" Sane moving in screen-lines
+nnoremap j gj
+nnoremap k gk
+
+" No help, thx
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
 " Make Y behave like C and D
 nnoremap Y y$
-
-" Make whitespace visible
-noremap <leader>w :set list!<CR>
 
 " Make all Buffers into Tabs
 noremap <leader>t :tab sball<CR>
 
 " Hotkey for NERDTree
+nnoremap <leader>b :NERDTree %:p:h
 nnoremap <leader>n :NERDTreeToggle<CR>
 
 " forgot sudo?
-nnoremap <leader>W :w !sudo tee >/dev/null %<CR>
+cnoremap w!! :w !sudo tee >/dev/null %<CR>
 
 " Variable Completion a la Eclipse
 imap <Nul> <C-n>
@@ -161,7 +174,6 @@ noremap <leader>p :set paste! paste?<CR>
 
 " Tab mappings
 nnoremap <C-T> :tabnew<CR>
-nnoremap <C-W> :tabclose<CR>
 
 " Window Mappings
 nnoremap <C-H> <C-W>h
@@ -169,6 +181,7 @@ nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 nnoremap <C-=> <C-W>=
+nnoremap <leader>o :only<CR>
 
 " Use normal-mode arrow-keys for change- and jumplist
 nnoremap <UP> <C-O>
@@ -179,18 +192,22 @@ nnoremap <RIGHT> g,
 " Quicker ESC
 inoremap jj <ESC>
 
-" ==== AUTOCMDS ====
+" Make whitespace visible and easily deleteable
+noremap <leader>w :set list!<CR>
+nnoremap <leader>W :%s/\s\+$//e<CR>
 
-" Open NERDTree when launched without Arguments
-autocmd vimenter * if !argc() | NERDTree | endif
+" Indent pastes properly
+nnoremap <leader>pi p`[v`]=
+
+" ==== AUTOCMDS ====
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
 " (happens when dropping a file on gvim).
 autocmd BufReadPost *
-\ if line("'\"") > 0 && line("'\"") <= line("$") | 
-\   exe "normal g`\"" | 
-\ endif 
+\ if line("'\"") > 0 && line("'\"") <= line("$") |
+\   exe "normal g`\"" |
+\ endif
 
 " For vimdiff
 if &diff
