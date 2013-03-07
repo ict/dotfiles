@@ -27,7 +27,6 @@ filetype plugin indent on
 let mapleader = "\\"
 
 " appearance
-set nu
 set relativenumber
 set bg=dark
 syntax on
