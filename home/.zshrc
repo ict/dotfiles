@@ -11,7 +11,9 @@ export HISTSIZE=50000
 export SAVEHIST=50000
 export EDITOR="vim"
 #export TERM="gnome"
-eval `dircolors -b`
+if $(which dircolors >&/dev/null); then
+	eval `dircolors -b`
+fi
 
 setopt autopushd pushdminus pushdsilent pushdtohome
 alias dh='dirs -v'
