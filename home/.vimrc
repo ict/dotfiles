@@ -36,6 +36,7 @@ set cursorline
 set matchtime=1 "show matching brackets for .1 seconds
 set scrolloff=5"
 set laststatus=2 "always show statusline"
+set splitright
 
 " Statusline
 set statusline=%F " Filename and path
