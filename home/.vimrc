@@ -17,9 +17,10 @@ Bundle 'gmarik/vundle'
 Bundle 'honza/snipmate-snippets'
 Bundle 'SirVer/ultisnips'
 Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
 Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-surround'
 Bundle 'Lokaltog/vim-easymotion'
 
 filetype plugin indent on
@@ -208,6 +209,17 @@ autocmd BufReadPost *
 \ if line("'\"") > 0 && line("'\"") <= line("$") |
 \   exe "normal g`\"" |
 \ endif
+
+" Switch to absolute Line-numbers when in insert-mode
+autocmd InsertEnter * setl number norelativenumber
+autocmd InsertLeave * setl nonumber relativenumber
+
+autocmd Filetype java set makeprg=javac\ %
+autocmd Filetype java set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
+
+map <F9> :w<Return>:make<Return>:copen<Return>
+map <F10> :cprevious<Return>
+map <F11> :cnext<Return>
 
 " For vimdiff
 if &diff
