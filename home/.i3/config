@@ -28,7 +28,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
@@ -162,7 +162,7 @@ mode "(p)oweroff (c)hange_user or (l)ock" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-bindsym $mod+q mode "(p)oweroff (c)hange_user or (l)ock"
+bindsym $mod+Shift+q mode "(p)oweroff (c)hange_user or (l)ock"
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
