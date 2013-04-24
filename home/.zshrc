@@ -53,7 +53,6 @@ alias mc='env LANG=en_US.utf8 mc'
 alias sshuni='ssh -Y sidekell@faui0sr0.informatik.uni-erlangen.de'
 alias sshome='ssh -p 1501 -Y -C -L 5901:localhost:5901 ict@ictbox.no-ip.org'
 alias man='LC_ALL=C LANG=C man'
-alias st='env LD_LIBRARY_PATH="/usr/lib" "/opt/sublime_text/sublime_text"'
 
 #promptinit && prompt walters
 PROMPT="[%{$fg_bold[red]%}%n%{$reset_color%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$reset_color%}]$ "
@@ -81,6 +80,17 @@ bindkey "\eOF" end-of-line
 # for freebsd console
 bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
+
+function man() {
+    env LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+	LESS_TERMCAP_md=$(printf "\e[1;31m") \
+	LESS_TERMCAP_me=$(printf "\e[0m") \
+	LESS_TERMCAP_se=$(printf "\e[0m") \
+	LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+	LESS_TERMCAP_ue=$(printf "\e[0m") \
+	LESS_TERMCAP_us=$(printf "\e[1;32m") \
+	man "$@"
+}
 
 function mkcd()
 {

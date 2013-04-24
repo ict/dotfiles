@@ -14,7 +14,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " My Bundles here
-Bundle 'honza/snipmate-snippets'
 Bundle 'SirVer/ultisnips'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Raimondi/delimitMate'
@@ -22,6 +21,8 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-surround'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'kien/ctrlp.vim'
+Bundle 'mhinz/vim-startify'
 
 filetype plugin indent on
 
@@ -124,7 +125,8 @@ set listchars=eol:¬,tab:•·,trail:·
 "Highlight special characters in yellow:
 highlight SpecialKey term=standout ctermbg=yellow guibg=yellow
 
-set switchbuf=usetab,newtab
+set switchbuf=usetab
+"set switchbuf=usetab,newtab
 
 
 
@@ -217,9 +219,10 @@ autocmd InsertLeave * setl nonumber relativenumber
 autocmd Filetype java set makeprg=javac\ %
 autocmd Filetype java set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
 
-map <F9> :w<Return>:make<Return>:copen<Return>
+map <F9> :w<Return>:make<Return>:copen<Return><C-W>p
 map <F10> :cprevious<Return>
 map <F11> :cnext<Return>
+map <F12> :cclose<Return>
 
 " For vimdiff
 if &diff
