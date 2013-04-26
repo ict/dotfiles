@@ -156,9 +156,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "(p)oweroff (c)hange_user or (l)ock" {
-		bindsym c exec gnome-session-quit --logout
-		bindsym p exec gnome-session-quit --power-off
-		bindsym l exec --no-startup-id i3lock -i ~/.i3/lock.png;  mode "default"
+		bindsym c exec gnome-session-quit --logout; mode "default"
+		bindsym p exec gnome-session-quit --power-off; mode "default"
+		bindsym l exec --no-startup-id i3lock -t -i ~/.i3/lock.png;  mode "default"
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
