@@ -23,6 +23,10 @@ Bundle 'tpope/vim-surround'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mhinz/vim-startify'
+Bundle 'Lokaltog/powerline'
+
+"activate powerline
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 filetype plugin indent on
 
