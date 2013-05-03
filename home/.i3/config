@@ -158,7 +158,7 @@ bindsym $mod+r mode "resize"
 mode "(p)oweroff (c)hange_user or (l)ock" {
 		bindsym c exec gnome-session-quit --logout
 		bindsym p exec gnome-session-quit --power-off
-		bindsym l exec i3lock -i ~/.i3/lock.png;  mode "default"
+		bindsym l exec --no-startup-id i3lock -i ~/.i3/lock.png;  mode "default"
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
@@ -181,6 +181,7 @@ exec i3-msg rename workspace 1 to "1: web"
 
 # Set wallpaper
 exec sh ~/.fehbg
+exec --
 
 # Volume-control
 exec pa-applet
