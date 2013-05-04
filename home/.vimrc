@@ -241,7 +241,7 @@ if has("gui_running")
 	se guioptions=e
 
 	if has("win32")
-		set guifont=Ubuntu_Mono:h12:cANSI
+		set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
 	else
 		set guifont=Ubuntu\ Mono\ 11
 	endif

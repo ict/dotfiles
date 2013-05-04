@@ -1,5 +1,6 @@
 [user]
 	email = ict1986@gmail.com
+	name = Demian (Windows)
 
 [diff]
     external = /home/ict/scripts/git_diff_wrap.sh
