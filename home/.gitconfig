@@ -3,7 +3,7 @@
 	name = Demian (Windows)
 
 [diff]
-    external = /home/ict/scripts/git_diff_wrap.sh
+    external = ~/scripts/git_diff_wrap.sh
 
 [pager]
     diff =

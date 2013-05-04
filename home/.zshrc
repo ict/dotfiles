@@ -1,155 +1,49 @@
-# The following lines were added by compinstall
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
 
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="agnoster"
+DEFAULT_USER="ict"
 
-autoload -Uz compinit promptinit
-autoload -U colors && colors
-compinit
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export DIRSTACKSIZE=8
-export HISTFILE=~/.zsh_history
-export HISTSIZE=50000
-export SAVEHIST=50000
-export EDITOR="vim"
-#export TERM="gnome"
-if $(which dircolors >&/dev/null); then
-	eval `dircolors -b`
-fi
+# Set to this to use case-sensitive completion
+# CASE_SENSITIVE="true"
 
-setopt autopushd pushdminus pushdsilent pushdtohome
-alias dh='dirs -v'
-setopt interactivecomments
-setopt cdablevars
-setopt interactivecomments
-setopt noclobber
-setopt HIST_REDUCE_BLANKS
-setopt HIST_IGNORE_SPACE
-setopt HIST_ALLOW_CLOBBER
-setopt SH_WORD_SPLIT
-setopt nohup
-setopt INC_APPEND_HISTORY SHARE_HISTORY
-setopt correct correctall
-unsetopt menucomplete
-setopt longlistjobs
-unsetopt beep extendedglob
-unsetopt bgnice
-bindkey -e
+# Comment this out to disable bi-weekly auto-update checks
+# DISABLE_AUTO_UPDATE="true"
 
-# extensions
-alias -s png='eog'
-alias -s jpg='eog'
+# Uncomment to change how often before auto-updates occur? (in days)
+# export UPDATE_ZSH_DAYS=13
 
-alias ls='ls -h --color=auto'
-alias l='ls'
-alias ll='ls -lh'
-alias lla='ls -alh'
-alias lt='ls -h --color=auto --sort=time'
-alias grep='grep --color=auto'
-alias e='exit'
-alias ..='cd ..'
-alias pacman='sudo pacman'
-alias vncon='vncserver -geometry 1024x768 -depth 16'
-alias vncoff='vncserver -kill :1'
-alias mc='env LANG=en_US.utf8 mc'
-alias sshuni='ssh -Y sidekell@faui0sr0.informatik.uni-erlangen.de'
-alias sshome='ssh -p 1501 -Y -C -L 5901:localhost:5901 ict@ictbox.no-ip.org'
-alias man='LC_ALL=C LANG=C man'
-alias st='env LD_LIBRARY_PATH="/usr/lib" "/opt/sublime_text/sublime_text"'
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
 
-#promptinit && prompt walters
-PROMPT="[%{$fg_bold[red]%}%n%{$reset_color%}@%{$fg_bold[blue]%}%m %{$fg_bold[yellow]%}%1~ %{$reset_color%}]$ "
-#RPROMPT="[%{$fg[yellow]%}%?%{$reset_color%}]"
+# Uncomment following line if you want to disable autosetting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-bindkey "\e[1~" beginning-of-line # Home
-bindkey "\e[4~" end-of-line # End
-bindkey "\e[5~" history-beginning-search-backward # PageUp
-bindkey "\e[6~" history-beginning-search-forward # PageDown
-bindkey "\e[2~" quoted-insert # Ins
-bindkey "\e[3~" delete-char # Del
-bindkey "\e[5C" forward-word
-bindkey "\eOc" emacs-forward-word
-bindkey "\e[5D" backward-word
-bindkey "\eOd" emacs-backward-word
-bindkey "\e\e[C" forward-word
-bindkey "\e\e[D" backward-word
-bindkey "\e[Z" reverse-menu-complete # Shift+Tab
-# for rxvt
-bindkey "\e[7~" beginning-of-line # Home
-bindkey "\e[8~" end-of-line # End
-# for non RH/Debian xterm, can't hurt for RH/Debian xterm
-bindkey "\eOH" beginning-of-line
-bindkey "\eOF" end-of-line
-# for freebsd console
-bindkey "\e[H" beginning-of-line
-bindkey "\e[F" end-of-line
+# Uncomment following line if you want to disable command autocorrection
+# DISABLE_CORRECTION="true"
 
-function mkcd()
-{
-    mkdir -p "$1" && cd "$1"
-}
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+COMPLETION_WAITING_DOTS="true"
 
-function x()
-{ 
-    if [ -f "$1" ] ; then
-        case "$1" in
-            *.tar.bz2)  tar xjf "$1"      ;;
-            *.tar.gz)   tar xzf "$1"      ;;
-            *.tar.Z)    tar xzf "$1"      ;;
-            *.bz2)      bunzip2 "$1"      ;;
-            *.rar)      unrar x "$1"      ;;
-            *.gz)       gunzip "$1"       ;;
-            *.jar)      unzip "$1"        ;;
-            *.tar)      tar xf "$1"       ;;
-            *.tbz2)     tar xjf "$1"      ;;
-            *.tgz)      tar xzf "$1"      ;;
-            *.zip)      unzip "$1"        ;;
-            *.Z)        uncompress "$1"   ;;
-            *)          echo "'$1' cannot be extracted" ;;
-        esac
-    else
-        echo "'$1' is not a file"
-    fi
-}
+# Uncomment following line if you want to disable marking untracked files under
+# VCS as dirty. This makes repository status check for large repositories much,
+# much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-function s() 
-{ 
-    tmux -2 attach -t work || tmux -2 new -s work 
-}
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(colored-man cp extract history history-substring-search mercurial systemd git zsh-syntax-highlighting)
 
-function makepdf()
-{
-	a2ps "$1" -o "$1.ps" -M A4dj -T 4 --columns=1 --margin=5 -r -l 150
-	ps2pdf -sPAPERSIZE=a4 "$1.ps" "$1.pdf"
-	rm -f "$1.ps"
-}
+source $ZSH/oh-my-zsh.sh
 
-# The following lines were added by compinstall
-
-zstyle ':completion:*' completer _expand _complete _ignored _approximate
-zstyle ':completion:*' completions 1
-zstyle ':completion:*' expand prefix suffix
-zstyle ':completion:*' glob 1
-zstyle ':completion:*' ignore-parents parent pwd .. directory
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' list-suffixes true
-zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:]}={[:upper:]}'
-zstyle ':completion:*' max-errors 2 numeric
-zstyle ':completion:*' prompt '%e errors corrected'
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' squeeze-slashes true
-zstyle ':completion:*' substitute 0
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' insert-unambiguous true
-zstyle ':completion:*' menu select=1 
-zstyle :compinstall filename '/home/ict/.zshrc'
-
-zstyle ':completion:*:rm:*' ignore-line yes
-zstyle ':completion:*:processes-names' command 'ps c -e -o comm='
-zstyle ':completion:*:processes' command 'ps -au$USER'
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
-zstyle ':completion:*:*:kill*:*' menu yes select
-zstyle ':completion:*:kill:*' force-list always
-
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
+# Customize to your needs...
+export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
