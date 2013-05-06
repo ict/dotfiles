@@ -255,7 +255,7 @@ if has("gui_running")
 	if has("win32")
 		set guifont=Consolas_for_Powerline_FixedD:h10
 	else
-		set guifont=Ubuntu\ Mono\ 11
+		set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
 	endif
 
 	" initial window size
