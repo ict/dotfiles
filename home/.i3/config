@@ -191,3 +191,5 @@ exec pa-applet
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+e exec nemo
 
+# Rules for specific apps
+for_window [title="Simu$"] floating enable
