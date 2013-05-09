@@ -1,0 +1,59 @@
+[ui]
+username = Demian Kellermann <demian.kellermann@fau.de>
+
+[extensions]
+# "glog"-kommando, zeichnet history als DAG
+hgext.graphlog=
+
+# purge wie git clean
+purge =
+
+# zeichnet fortschrittsbalken bei kommandos über langsame netzwerkverbindungen etc.
+progress=
+
+# spart "| less" bei kommandos die mehr als 1 seite ausgaben erzeugen
+pager=
+
+# output in farbe und bunt
+color=
+
+# evil history rewriting
+mq=
+rebase=
+
+# diff with meld
+hgext.extdiff=
+
+# onsub - fuer vereinfachtes arbeiten mit subrepositories
+# ist auf lehrstuhlrechnern an genau dieser stelle vorinstalliert
+# sonst: clonen von https://bitbucket.org/aragost/onsub/
+onsub = /home/demian/.local/mercurial/extensions/onsub/onsub.py
+
+# shelve - zeitweises sichern von nicht committeten aenderungen
+# auf nicht-lehrstuhlrechnern: clonen von https://bitbucket.org/tksoh/hgshelve/
+hgshelve = /home/demian/.local/mercurial/extensions/hgshelve/hgshelve.py
+
+# b - minimalistischer bugtracker
+# Anleitung unter http://www.digitalgemstones.com/projects/b/
+# auf nicht-lehrstuhlrechnern: clonen von http://hg.digitalgemstones.com/hg/b/
+b = /home/demian/.local/mercurial/extensions/b/src/b.py
+
+# For hgk
+hgk = /usr/lib/python2.7/site-packages/hgext/hgk.py
+
+[pager]
+# # Da "less" nur auf unix-rechnern installiert ist, ist die folgende Konfiguration auskommentiert.
+# # less als pager mit "schoenen" optionen
+pager = LESS='FSRX' less
+
+# # keine unnoetigen fehlermeldungen
+# quiet = True
+
+# # kommandoliste bei denen pager etwas tun soll
+attend = status, diff, log, glog, help
+
+[alias]
+upall = ! hg up; hg onsub "hg pull -u"
+
+[extdiff]
+cmd.meld =
