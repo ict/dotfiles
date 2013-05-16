@@ -17,6 +17,7 @@ Bundle 'gmarik/vundle'
 Bundle 'SirVer/ultisnips'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Raimondi/delimitMate'
+Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-surround'
@@ -73,6 +74,7 @@ set smartcase
 
 set title
 set nohidden " close buffers when window/tab closes"
+set autoread
 
 " format options
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
