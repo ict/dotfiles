@@ -179,17 +179,22 @@ hide_edge_borders vertical
 floating_modifier $mod
 exec i3-msg rename workspace 1 to "1: web"
 
-# Set wallpaper
-exec sh ~/.fehbg
-exec --
-
-# Volume-control
-exec pa-applet
-
-
 # Often used apps
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+e exec nemo
 
 # Rules for specific apps
 for_window [title="Simu$"] floating enable
+for_window [title="TightVNC"] floating enable
+for_window [class="Dia"] floating enable
+for_window [class="Nemo"] floating enable
+
+
+# Set wallpaper
+exec sh ~/.fehbg
+
+# Volume-control
+exec pa-applet
+
+# Notification-daemon
+exec --no-startup-id dunst
