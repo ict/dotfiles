@@ -191,10 +191,13 @@ for_window [class="Nemo"] floating enable
 
 
 # Set wallpaper
-exec sh ~/.fehbg
+exec --no-startup-id sh ~/.fehbg
 
 # Volume-control
-exec pa-applet
+exec --no-startup-id pa-applet
 
 # Notification-daemon
 exec --no-startup-id dunst
+
+# Umlauts
+exec --no-startup-id xmodmap ~/.Xmodmap
