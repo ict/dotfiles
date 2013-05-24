@@ -26,7 +26,9 @@ Bundle 'mhinz/vim-startify'
 Bundle 'Lokaltog/powerline'
 
 "activate powerline
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+if has("unix")
+	set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+endif
 
 filetype plugin indent on
 
@@ -247,7 +249,7 @@ if has("gui_running")
 	se guioptions=e
 
 	if has("win32")
-		set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
+		set guifont=Consolas_for_Powerline_FixedD:h10
 	else
 		set guifont=Ubuntu\ Mono\ 11
 	endif
