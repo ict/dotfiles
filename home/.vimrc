@@ -208,6 +208,10 @@ nnoremap <leader>W :%s/\s\+$//e<CR>
 " Indent pastes properly
 nnoremap <leader>pi p`[v`]=
 
+" Save on leader-s
+nnoremap <leader>s :w<CR>
+inoremap <leader>s <C-O>:w<CR>
+
 " ==== AUTOCMDS ====
 
 " When editing a file, always jump to the last known cursor position.
