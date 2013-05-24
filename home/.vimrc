@@ -76,6 +76,12 @@ set title
 set nohidden " close buffers when window/tab closes"
 set autoread
 
+" use persistent undo and set where to create all those tmp-files
+set undofile
+set directory=~/.vim/tmp
+set backupdir=~/.vim/backup
+set undodir=~/.vim/undo
+
 " format options
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 set fileformats=unix,dos
