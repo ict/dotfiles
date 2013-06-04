@@ -41,9 +41,11 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(colored-man cp extract history mercurial systemd git zsh-syntax-highlighting history-substring-search)
+plugins=(zsh-syntax-highlighting colored-man cp extract history mercurial systemd git history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+source ~/.oh-my-zsh/plugins/history-substring-search/history-substring-search.zsh
+
