@@ -25,6 +25,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mhinz/vim-startify'
 Bundle 'Lokaltog/powerline'
+Bundle 'godlygeek/tabular'
 
 "activate powerline
 if has("unix")
@@ -218,7 +219,6 @@ nnoremap <leader>pi p`[v`]=
 
 " Save on leader-s
 nnoremap <leader>s :w<CR>
-inoremap <leader>s <C-O>:w<CR>
 
 " ==== AUTOCMDS ====
 
