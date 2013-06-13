@@ -26,6 +26,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'mhinz/vim-startify'
 Bundle 'Lokaltog/powerline'
 Bundle 'godlygeek/tabular'
+Bundle 'Shougo/unite.vim'
 
 "activate powerline
 if has("unix")
