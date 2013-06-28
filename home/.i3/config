@@ -199,5 +199,6 @@ exec --no-startup-id pa-applet
 # Notification-daemon
 exec --no-startup-id dunst
 
-# Umlauts
+# Umlauts & remaps
 exec --no-startup-id xmodmap ~/.Xmodmap
+exec --no-startup-id xcape

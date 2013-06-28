@@ -3,9 +3,14 @@ clear mod3
 add mod3 = Mode_switch
 clear mod5
 add mod5 = ISO_Level3_Shift
+
 keycode 30 = u U udiaeresis Udiaeresis u U 
 keycode 32 = o O odiaeresis Odiaeresis o O
 keycode 38 = a A adiaeresis Adiaeresis a A
 keycode 26 = e E EuroSign EuroSign e E
 keycode 39 = s S ssharp ssharp s S
 pointer = 1 9 3 4 5 6 7 8 2 10
+
+remove Lock = Caps_Lock
+keysym Caps_Lock = Control_L
+add Control = Control_L
