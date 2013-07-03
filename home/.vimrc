@@ -171,6 +171,15 @@ vnoremap <TAB> %
 nnoremap j gj
 nnoremap k gk
 
+" Copy whole document to X-clipboard
+nnoremap <leader>x gg"+yG<C-O>
+
+" Paste from X-clipboard
+nnoremap <leader>p "+p
+
+" Paste from X and indent properly
+nnoremap <leader>pi "+p`[v`]=
+
 " No help, thx
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
@@ -191,9 +200,6 @@ cnoremap w!! :w !sudo tee >/dev/null %<CR>
 
 " Variable Completion a la Eclipse
 imap <Nul> <C-n>
-
-" Toggle Paste
-noremap <leader>p :set paste! paste?<CR>
 
 " Tab mappings
 nnoremap <C-T> :tabnew<CR>
@@ -218,9 +224,6 @@ inoremap jj <ESC>
 " Make whitespace visible and easily deleteable
 noremap <leader>w :set list!<CR>
 nnoremap <leader>W :%s/\s\+$//e<CR>
-
-" Indent pastes properly
-nnoremap <leader>pi p`[v`]=
 
 " Save on leader-s
 nnoremap <leader>s :w<CR>
@@ -256,6 +259,12 @@ nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
 nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mappings mapping<cr>
 nnoremap <silent> [unite]o :<C-u>Unite -auto-resize -buffer-name=outline outline<cr>
 nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
+
+" ==== Other plugin settings
+
+let g:startify_bookmarks = [ '~/.vimrc' ]
+let g:startify_skiplist = [ 'COMMIT_EDITMSG' ]
+
 
 " ==== AUTOCMDS ====
 
