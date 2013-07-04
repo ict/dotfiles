@@ -31,6 +31,10 @@ Bundle 'godlygeek/tabular'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/unite-outline'
+
+Bundle 'scrooloose/syntastic'
+Bundle 'Valloric/YouCompleteMe'
+
 "activate powerline
 if has("unix")
 	set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
@@ -131,13 +135,17 @@ set backspace=indent,eol,start
 " enable this for bash compatible behaviour
 set wildmenu
 set wildmode=longest,full
-set wildignore=.svn,.git
+set wildignore=.svn,.git,.hg
 
 if has("unix")
 	" setup spelling but dont use it normally
 	setlocal spell spelllang=de_20
 	se nospell
 endif
+
+" use right mouse button for context-menu instead of selection
+" (useful for spell-corrections)
+set mousemodel=popup
 
 " What characters are displayed (with <Leader>-w)
 "set listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<,nbsp:_
@@ -149,12 +157,10 @@ set switchbuf=usetab
 "set switchbuf=usetab,newtab
 
 
-
 " Configure Ultisnips
 let g:UltiSnipsUsePythonVersion = 2
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
 
 " TODO! Doesnt work in console
 let g:UltiSnipsListSnippets="<c-tab>"
