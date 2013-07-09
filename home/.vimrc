@@ -178,7 +178,7 @@ nnoremap j gj
 nnoremap k gk
 
 " Copy whole document to X-clipboard
-nnoremap <leader>x gg"+yG<C-O>
+nnoremap <leader>x gg"+yG2<C-O>
 
 " Paste from X-clipboard
 nnoremap <leader>p "+p
@@ -284,7 +284,7 @@ autocmd BufReadPost *
 
 " Switch to absolute Line-numbers when in insert-mode
 autocmd InsertEnter * setl number norelativenumber
-autocmd InsertLeave * setl nonumber relativenumber
+autocmd InsertLeave * setl number relativenumber
 
 autocmd Filetype java set makeprg=javac\ %
 autocmd Filetype java set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
