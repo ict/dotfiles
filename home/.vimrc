@@ -24,8 +24,8 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-surround'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'kien/ctrlp.vim'
 Bundle 'mhinz/vim-startify'
+Bundle 'mhinz/vim-signify'
 Bundle 'Lokaltog/powerline'
 Bundle 'godlygeek/tabular'
 Bundle 'Shougo/vimproc.vim'
@@ -42,7 +42,7 @@ endif
 
 filetype plugin indent on
 
-let mapleader = "\\"
+let mapleader = ","
 
 " appearance
 set relativenumber
@@ -83,7 +83,7 @@ set ignorecase
 set smartcase
 
 set title
-set nohidden " close buffers when window/tab closes"
+set hidden 
 set autoread
 
 " use persistent undo and set where to create all those tmp-files
@@ -195,11 +195,14 @@ vnoremap <F1> <ESC>
 nnoremap Y y$
 
 " Make all Buffers into Tabs
-noremap <leader>t :tab sball<CR>
+noremap <silent> <leader>t :tab sball<CR>
 
 " Hotkey for NERDTree
-nnoremap <leader>b :NERDTree %:p:h
-nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <silent> <leader>b :NERDTree %:p:h<CR>
+nnoremap <silent> <leader>n :NERDTreeToggle<CR>
+
+" Quickly switch to current dir in this buffer
+nnoremap <leader>cd :lcd %:h<CR>
 
 " forgot sudo?
 cnoremap w!! :w !sudo tee >/dev/null %<CR>
@@ -228,8 +231,8 @@ nnoremap <RIGHT> g,
 inoremap jj <ESC>
 
 " Make whitespace visible and easily deleteable
-noremap <leader>w :set list!<CR>
-nnoremap <leader>W :%s/\s\+$//e<CR>
+noremap <silent> <leader>w :set list!<CR>
+nnoremap <silent> <leader>W :%s/\s\+$//e<CR>
 
 " Save on leader-s
 nnoremap <leader>s :w<CR>
@@ -262,9 +265,10 @@ nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yanks history/yank<cr>
 nnoremap <silent> [unite]l :<C-u>Unite -auto-resize -buffer-name=line line<cr>
 nnoremap <silent> [unite]b :<C-u>Unite -auto-resize -buffer-name=buffers buffer<cr>
 nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
-nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mappings mapping<cr>
+nnoremap <silent> [unite]M :<C-u>Unite -auto-resize -buffer-name=mappings mapping<cr>
 nnoremap <silent> [unite]o :<C-u>Unite -auto-resize -buffer-name=outline outline<cr>
 nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
+nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mru buffer file_mru bookmark<cr>
 
 " ==== Other plugin settings
 
