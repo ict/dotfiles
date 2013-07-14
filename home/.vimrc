@@ -28,12 +28,14 @@ Bundle 'mhinz/vim-startify'
 Bundle 'mhinz/vim-signify'
 Bundle 'Lokaltog/powerline'
 Bundle 'godlygeek/tabular'
-Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/unite-outline'
 
-Bundle 'scrooloose/syntastic'
-Bundle 'Valloric/YouCompleteMe'
+if ! s:is_windows
+	Bundle 'Shougo/vimproc.vim'
+	Bundle 'scrooloose/syntastic'
+	Bundle 'Valloric/YouCompleteMe'
+endif
 
 "activate powerline
 if has("unix")
