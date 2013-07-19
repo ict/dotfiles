@@ -23,6 +23,8 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-eunuch'
+Bundle 'tpope/vim-markdown'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'mhinz/vim-startify'
 Bundle 'mhinz/vim-signify'
@@ -178,9 +180,11 @@ vnoremap <TAB> %
 " Sane moving in screen-lines
 nnoremap j gj
 nnoremap k gk
+vnoremap j gj
+vnoremap k gk
 
 " Copy whole document to X-clipboard
-nnoremap <leader>x gg"+yG2<C-O>
+nnoremap <leader>x mxgg"+yG`x
 
 " Paste from X-clipboard
 nnoremap <leader>p "+p
@@ -188,8 +192,11 @@ nnoremap <leader>p "+p
 " Paste from X and indent properly
 nnoremap <leader>pi "+p`[v`]=
 
+" Paste from X in insert-mode
+inoremap <F1> <C-R><C-R>+
+
 " No help, thx
-inoremap <F1> <ESC>
+" inoremap <F1> <ESC> "remapped: see above!
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
