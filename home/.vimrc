@@ -32,6 +32,8 @@ Bundle 'Lokaltog/powerline'
 Bundle 'godlygeek/tabular'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/unite-outline'
+Bundle 'merlinrebrovic/focus.vim'
+Bundle 'ict/vim-syntax-casm'
 
 if ! s:is_windows
 	Bundle 'Shougo/vimproc.vim'
@@ -284,6 +286,8 @@ nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mru buffer file
 let g:startify_bookmarks = [ '~/.vimrc' ]
 let g:startify_skiplist = [ 'COMMIT_EDITMSG' ]
 
+let g:focusmode_width = 100
+nmap <silent> <leader>fo :set nosplitright<CR><Plug>FocusModeToggle
 
 " ==== AUTOCMDS ====
 
