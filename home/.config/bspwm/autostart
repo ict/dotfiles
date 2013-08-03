@@ -1,0 +1,39 @@
+#!/bin/sh
+
+FIRST_DESK="web"
+REMAINING_DESKS="code files comm $(seq 5 9) 0"
+bspc desktop Desktop01 --rename $FIRST_DESK
+bspc monitor --add-desktops $REMAINING_DESKS
+bspc monitor --pad 0 0 20 0
+
+bspc rule -a Gimp --floating
+bspc rule -a Simu$ --floating
+bspc rule -a TightVNC --floating
+bspc rule -a Dia --floating
+bspc rule -a Nemo --floating
+
+bspc config split_ratio 0.50
+bspc config border_width 2
+bspc config window_gap 8
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+bspc config focus_follows_pointer true
+bspc config pointer_follows_monitor true
+bspc config auto_cancel true
+
+bspc config focused_border_color "#508F50"
+bspc config normal_border_color "#3F3E3B"
+bspc config presel_border_color "#FF003F"
+
+xsetroot -cursor_name left_ptr
+sh ~/.fehbg
+setxkbmap gb
+xmodmap .Xmodmap
+
+xcape &
+sxhkd &
+bmpanel2 &
+
+/usr/bin/xflux -l 49.45203 -g 11.07675 
+dropboxd &
+kalu &

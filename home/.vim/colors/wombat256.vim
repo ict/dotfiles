@@ -13,6 +13,8 @@ let g:colors_name = "wombat256"
 
 "hi IncSearch -- no settings --
 "hi WildMenu -- no settings --
+"hi SignColumn guifg=#e5786d guibg=NONE guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
+hi SignColumn guifg=#857b6f guibg=#121212 guisp=#121212 gui=NONE ctermfg=101 ctermbg=233 cterm=NONE
 "hi SignColumn -- no settings --
 hi SpecialComment guifg=#ffdead guibg=NONE guisp=NONE gui=NONE ctermfg=223 ctermbg=NONE cterm=NONE
 hi Typedef guifg=#caeb82 guibg=NONE guisp=NONE gui=NONE ctermfg=192 ctermbg=NONE cterm=NONE

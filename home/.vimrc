@@ -1,4 +1,4 @@
-"vim: foldenable foldlevel=0 foldmethod=marker
+" vim: foldenable foldlevel=0 foldmethod=marker
 
 " {{{ INITIALIZATION
 
@@ -299,6 +299,10 @@ nnoremap <silent> <leader>W :%s/\s\+$//e<CR>
 
 " Save on leader-s
 nnoremap <leader>s :w<CR>
+
+" Indent according to GNU
+nnoremap <leader>gnu :call GnuIndent()<CR>
+
 "}}}
 
 " {{{= AUTOCMDS
@@ -353,4 +357,13 @@ if has("gui_running")
 	set lines=60 columns=200
 
 endif
+"}}}
+
+" {{{ FUNCTIONS
+" R.'s GNU-indent style
+function! GnuIndent()
+	setlocal cinoptions=>4,n-2,{2,^-2,:2,=2,g0,h2,p5,t0,+2,(0,u0,w1,m1
+	setlocal shiftwidth=2
+	setlocal tabstop=8
+endfunction
 "}}}

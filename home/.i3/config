@@ -104,8 +104,8 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-# switch workspaces on [ und ]
-bindcode $mod+34 workspace prev_on_output
+# switch workspaces on [ and ]
+bindcode $mod+34 workspace prev_on_output 
 bindcode $mod+35 workspace next_on_output
 
 # move focused container to workspace
