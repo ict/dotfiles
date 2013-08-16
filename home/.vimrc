@@ -135,6 +135,9 @@ set ttimeout ttimeoutlen=50
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
+
+" dont recognize numbers with leading 0s as octal
+set nrformats-=octal
 "}}}
 
 " {{{ MISC Editor settings
@@ -209,7 +212,7 @@ nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
 nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mru buffer file_mru bookmark<cr>
 "}}}
 
-" {{{= MAPPINGS ====
+" {{{= MAPPINGS
 
 let mapleader = ","
 
@@ -302,6 +305,9 @@ nnoremap <leader>s :w<CR>
 
 " Indent according to GNU
 nnoremap <leader>gnu :call GnuIndent()<CR>
+
+" break undo on newline (and expand abbrevs beforehand)
+inoremap <CR> <C-]><C-G>u<CR>
 
 "}}}
 
