@@ -73,7 +73,7 @@ super + shift + f
 	firefox
 
 super + d
-    dmenu_run
+    interrobang
 
 # make sxhkd reload its configuration files:
 super + Escape
