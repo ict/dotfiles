@@ -333,7 +333,7 @@ autocmd Filetype java set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
 autocmd Filetype tex set tw=100
 
 " Hotkeys for :make and browsing errors
-map <F9> :w<Return>:make<Return>:copen<Return><C-W>p
+map <F9> :w<Return>:make<Return>:cw<Return><C-W>p
 map <F10> :cprevious<Return>
 map <F11> :cnext<Return>
 map <F12> :cclose<Return>
