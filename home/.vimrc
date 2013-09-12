@@ -209,7 +209,7 @@ nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
 nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mru buffer file_mru bookmark<cr>
 "}}}
 
-" {{{= MAPPINGS ====
+" {{{ MAPPINGS
 
 let mapleader = ","
 
@@ -305,7 +305,7 @@ nnoremap <leader>gnu :call GnuIndent()<CR>
 
 "}}}
 
-" {{{= AUTOCMDS
+" {{{ AUTOCMDS
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
