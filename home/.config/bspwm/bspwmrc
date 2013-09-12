@@ -29,6 +29,9 @@ xsetroot -cursor_name left_ptr
 sh ~/.fehbg
 setxkbmap gb
 xmodmap .Xmodmap
+xset s 0
+# keyboard rate: default is 660ms / 25 Hz
+xset r rate 300 30
 
 xcape &
 sxhkd &

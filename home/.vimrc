@@ -135,6 +135,9 @@ set ttimeout ttimeoutlen=50
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
+
+" dont recognize numbers with leading 0s as octal
+set nrformats-=octal
 "}}}
 
 " {{{ MISC Editor settings
@@ -210,7 +213,6 @@ nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mru buffer file
 "}}}
 
 " {{{ MAPPINGS
-
 let mapleader = ","
 
 " For vimdiff
@@ -303,6 +305,9 @@ nnoremap <leader>s :w<CR>
 " Indent according to GNU
 nnoremap <leader>gnu :call GnuIndent()<CR>
 
+" break undo on newline (and expand abbrevs beforehand)
+inoremap <CR> <C-]><C-G>u<CR>
+
 "}}}
 
 " {{{ AUTOCMDS
@@ -327,7 +332,7 @@ autocmd Filetype java set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
 autocmd Filetype tex set tw=100
 
 " Hotkeys for :make and browsing errors
-map <F9> :w<Return>:make<Return>:copen<Return><C-W>p
+map <F9> :w<Return>:make<Return>:cw<Return><C-W>p
 map <F10> :cprevious<Return>
 map <F11> :cnext<Return>
 map <F12> :cclose<Return>
