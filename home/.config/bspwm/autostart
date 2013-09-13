@@ -1,0 +1,26 @@
+#!/bin/bash
+
+eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+# You probably need to do this too:
+export SSH_AUTH_SOCK
+export GPG_AGENT_INFO
+export GNOME_KEYRING_CONTROL
+export GNOME_KEYRING_PID
+
+export XDG_CONFIG_HOME="$HOME/.config"
+
+xsetroot -cursor_name left_ptr
+nitrogen --restore
+setxkbmap gb
+xmodmap .Xmodmap
+xset s 0
+# keyboard rate: default is 660ms / 25 Hz
+xset r rate 300 30
+
+xcape &
+sxhkd &
+bmpanel2 &
+
+/usr/bin/xflux -l 49.45203 -g 11.07675 
+dropboxd &
+kalu &
