@@ -4,7 +4,7 @@ FIRST_DESK="web"
 REMAINING_DESKS="code files comm $(seq 5 9) 0"
 bspc desktop Desktop01 --rename $FIRST_DESK
 bspc monitor --add-desktops $REMAINING_DESKS
-bspc monitor --pad 0 0 20 0
+bspc config bottom_padding 34
 
 bspc rule -a Gimp --floating
 bspc rule -a Simu$ --floating
