@@ -21,12 +21,36 @@
     scrollbar_position = hidden
     allow_bold = False
     scrollback_infinite = True
+  [[solarized-dark]]
+    foreground_color = "#eee8d5"
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    background_image = None
+    cursor_color = "#eee8d5"
+    cursor_blink = False
+    scrollbar_position = hidden
+    show_titlebar = False
+    copy_on_selection = True
+    background_color = "#002b36"
+    allow_bold = False
+    scrollback_infinite = True
+  [[solarized-light]]
+    foreground_color = "#002b36"
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    background_image = None
+    cursor_color = "#002b36"
+    cursor_blink = False
+    scrollbar_position = hidden
+    show_titlebar = False
+    copy_on_selection = True
+    background_color = "#eee8d5"
+    allow_bold = False
+    scrollback_infinite = True
 [layouts]
   [[default]]
     [[[child1]]]
       type = Terminal
       parent = window0
-      profile = default
+      profile = solarized-light
     [[[window0]]]
       type = Window
       parent = ""

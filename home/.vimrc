@@ -40,6 +40,7 @@ Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/unite-outline'
 Bundle 'merlinrebrovic/focus.vim'
 Bundle 'ict/vim-syntax-casm'
+Bundle 'altercation/vim-colors-solarized'
 
 if ! s:is_windows
 	" Too much work to get those bundles working in win..
@@ -58,10 +59,10 @@ filetype plugin indent on
 " {{{ APPEARANCE-SETTINGS
 set title "set the window title
 set number relativenumber "use (relative) line numbers
-set bg=dark
 syntax on
 set t_Co=256
-colorscheme wombat256
+set bg=light
+colorscheme solarized
 set cursorline
 set matchtime=1 "show matching brackets for .1 seconds
 set scrolloff=5 "keep some lines from the bottom
