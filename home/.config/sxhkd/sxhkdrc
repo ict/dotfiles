@@ -78,6 +78,9 @@ super + shift + space
 super + shift + f
 	firefox
 
+super + shift + e
+	/home/demian/.local/bin/create_frame
+
 super + d
     interrobang
 

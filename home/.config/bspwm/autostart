@@ -17,6 +17,7 @@ xset s 0
 # keyboard rate: default is 660ms / 25 Hz
 xset r rate 300 30
 
+compton -b
 xcape &
 sxhkd &
 #bmpanel2 &
