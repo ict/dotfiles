@@ -99,7 +99,12 @@ set foldlevel=100
 
 " Mouse Support
 set mouse=a
-"}}}
+"
+" Just some fun ;)
+if executable("cowsay") && executable("fortune")
+	let g:startify_custom_header = map(split(system('fortune | cowsay'), '\n'), '" ". v:val')
+endif
+" }}}
 
 " {{{ EDITING-RELATED SETTINGS
 set autoindent
