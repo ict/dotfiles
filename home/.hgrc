@@ -54,6 +54,7 @@ attend = status, diff, log, glog, help
 
 [alias]
 upall = ! hg up; hg onsub "hg pull -u"
+glog = glog --template '\t\033[1;34m{rev} \033[0;31m{branches}  \033[0m{desc|firstline|strip} \033[0;34m({date|isodate} by {author|person}) \033[1;39m{tags} {bookmarks}\033[0m\n\n'
 
 [extdiff]
 cmd.meld =
