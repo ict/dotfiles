@@ -31,9 +31,9 @@ Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-markdown'
-Bundle 'Lokaltog/vim-easymotion'
 Bundle 'mhinz/vim-startify'
 Bundle 'mhinz/vim-signify'
+Bundle 'justinmk/vim-sneak'
 Bundle 'Lokaltog/powerline'
 Bundle 'godlygeek/tabular'
 Bundle 'Shougo/unite.vim'
@@ -150,8 +150,11 @@ set nrformats-=octal
 
 " Complete longest common string, then each full match with menu
 set wildmenu
-set wildmode=longest,full
-set wildignore=.svn,.git,.hg
+set wildmode=list:longest,full
+set wildignore=.svn,.git,.hg                     " Version control
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
 
 if has("unix")
 	" setup spelling but dont use it normally
