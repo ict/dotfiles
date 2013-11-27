@@ -397,4 +397,12 @@ function! GnuIndent()
 	setlocal shiftwidth=2
 	setlocal tabstop=8
 endfunction
+
+function! Beamer(size)
+	let n = "Menlo Regular for Powerline:h" . a:size
+	let &guifont = n
+endfunction
+nnoremap <leader>be :call Beamer(20)<CR>
+
+
 "}}}
