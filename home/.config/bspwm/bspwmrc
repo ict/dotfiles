@@ -17,14 +17,6 @@ case $(hostname -s) in
 		;;
 esac
 
-bspc rule -a Gimp --floating
-bspc rule -a Simu$ --floating
-bspc rule -a TightVNC --floating
-bspc rule -a Dia --floating
-bspc rule -a Nemo --floating
-bspc rule -a screenkey --unmanage
-bspc rule -a BSPWM_FRAME --frame
-
 bspc config split_ratio 0.50
 bspc config border_width 2
 bspc config window_gap 8
@@ -40,3 +32,7 @@ bspc config presel_border_color "#FF003F"
 bspc config active_frame_opacity 0
 bspc config normal_frame_opacity 0
 bspc config focused_frame_opacity 0.2
+
+bspc config rule_command "$HOME/.config/bspwm/rule_command"
+$HOME/.config/bspwm/bspwm_rules
+
