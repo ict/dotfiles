@@ -13,7 +13,20 @@ if s:is_windows
 	set rtp^=~/.vim
 endif
 
-" set up vundle
+
+" set up vundle on a new machine
+" see http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme)
+	echo "Installing Vundle.."
+	echo ""
+	silent !mkdir -p ~/.vim/bundle
+	silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+	let iCanHazVundle=0
+endif
+
+" set up bundles
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
@@ -51,6 +64,14 @@ if ! s:is_windows
 	"activate powerline
 	set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 endif
+
+
+if iCanHazVundle == 0
+	echo "Installing Bundles, please ignore key map error messages"
+	echo ""
+	:BundleInstall
+endif
+
 
 " turn filetypes on again
 filetype plugin indent on
