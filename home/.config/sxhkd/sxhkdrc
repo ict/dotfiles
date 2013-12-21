@@ -70,10 +70,10 @@ super + Return
     terminator
 
 super + shift + Return
-	bspc rule -a \* --floating --one-shot && terminator
+	bspc rule -a \* --one-shot floating=true && terminator
 
 super + shift + space
-	bspc rule -a \* --floating --one-shot
+	bspc rule -a \* --one-shot floating=true 
 
 super + shift + f
 	firefox
