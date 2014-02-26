@@ -51,9 +51,12 @@ Bundle 'Lokaltog/powerline'
 Bundle 'godlygeek/tabular'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/unite-outline'
+Bundle 'Shougo/neomru.vim'
 Bundle 'merlinrebrovic/focus.vim'
 Bundle 'ict/vim-syntax-casm'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'LaTeX-Box-Team/LaTeX-Box'
 
 if ! s:is_windows
 	" Too much work to get those bundles working in win..
@@ -81,9 +84,15 @@ filetype plugin indent on
 set title "set the window title
 set number relativenumber "use (relative) line numbers
 syntax on
-set t_Co=256
-set bg=light
-colorscheme solarized
+if $COLORTERM != "gnome-terminal" && !has("gui_running") "putty and mobax have problems with solarized..
+	set t_Co=256
+	colorscheme jellybeans
+	set bg=dark
+else
+	set t_Co=256
+	set bg=light
+	colorscheme solarized
+endif
 set cursorline
 set matchtime=1 "show matching brackets for .1 seconds
 set scrolloff=5 "keep some lines from the bottom
@@ -240,6 +249,15 @@ nnoremap <silent> [unite]M :<C-u>Unite -auto-resize -buffer-name=mappings mappin
 nnoremap <silent> [unite]o :<C-u>Unite -auto-resize -buffer-name=outline outline<cr>
 nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
 nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mru buffer file_mru bookmark<cr>
+
+" latex-box
+imap <buffer> [[     \begin{
+imap <buffer> ]]     <Plug>LatexCloseCurEnv
+
+let g:LatexBox_quickfix=2
+let g:LatexBox_latexmk_preview_continuously=1
+let g:LatexBox_show_warnings=0
+
 "}}}
 
 " {{{ MAPPINGS
